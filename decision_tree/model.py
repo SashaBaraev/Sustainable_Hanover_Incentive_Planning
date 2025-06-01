@@ -90,11 +90,4 @@ class StnblHnvrDT:
 
         return decision_tree
 
-    def visualize_decision_tree(self):
-        def visualize_node(node, level=0, p=''):
-            print(f"{level * '      '}{p} {type(node).__name__}: {node.name} - {round(node.expected_utility, 2)}")
-            if node.children is not None:
-                for i, child in enumerate(node.children):
-                    p = round(node.probabilities[i], 4) if isinstance(node, ChanceNode) else ''
-                    visualize_node(child, level=level + 1, p=p)
-        visualize_node(self.decision_tree)
+

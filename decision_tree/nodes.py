@@ -1,7 +1,20 @@
 class Node:
     def __init__(self, name, children=None):
         self.name = name
-        self.children = children
+        self.children = children if children is not None else []
+
+    @property
+    def expected_utility(self):
+        return 0 # This should be overridden in subclasses
+
+    def visualize_decision_tree(self):
+        def visualize_node(node, level=0, p=''):
+            print(f"{level * '      '}{p} {type(node).__name__}: {node.name} - {round(node.expected_utility, 2)}")
+            if node.children is not None:
+                for i, child in enumerate(node.children):
+                    p = round(node.probabilities[i], 4) if isinstance(node, ChanceNode) else ''
+                    visualize_node(child, level=level + 1, p=p)
+        visualize_node(self)
 
 class DecisionNode(Node):
     def __init__(self, name, children=None):

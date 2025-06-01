@@ -30,14 +30,3 @@ tree = StnblHnvrDT(town_distribution=initial_distribution,
 
 print(tree.incentivized_pv.round(4))
 
-# policies = {}
-# i = 0
-# for policy in tree.decision_tree.children[-3].children:
-#     print(policy.name)
-#     eus = []
-#     for u, p in zip(policy.children, policy.probabilities):
-#         print('  ', u.name, round(p, 5), u.expected_utility, round(p* u.expected_utility, 5))
-#         eus.append(round(p * u.expected_utility, 5))
-#
-#     policies[i] = np.array(eus)
-#     i+=1
