@@ -21,21 +21,26 @@ class DecisionNode(Node):
         super().__init__(name, children)
         self.children = children if children is not None else []
 
-    def add_child(self, child):
-        self.children.append(child)
+    def add_children(self, *children):
+        for child in children:
+            self.children.append(child)
 
     @property
     def expected_utility(self):
         return max(child.expected_utility for child in self.children)
 
 class ChanceNode(Node):
-    def __init__(self, name, probabilities, children=None):
+    def __init__(self, name, probabilities=None, children=None):
         super().__init__(name, children)
-        self.probabilities = probabilities
+        self.probabilities = probabilities if probabilities is not None else []
 
-    def add_child(self, child, p):
-        self.children.append(child)
-        self.probabilities.append(p)
+    def add_children(self, *children, probabilities):
+        for child in children:
+            self.children.append(child)
+        if isinstance(probabilities, list):
+            self.probabilities.extend(probabilities)
+        else:
+            self.probabilities.append(probabilities)
 
     @property
     def expected_utility(self):
