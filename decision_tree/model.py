@@ -89,5 +89,3 @@ class StnblHnvrDT:
                                    children=list(init_states.values()))
 
         return decision_tree
-
-
