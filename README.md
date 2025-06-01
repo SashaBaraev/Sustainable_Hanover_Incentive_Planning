@@ -1,10 +1,21 @@
 # Sustainable Hanover Incentive Planning
-Decision tree implementation for uncertainty and decision making modeling of incentive allocation for sustainable electricity in Hanover.
-@adayldrm - MILP implementation for incentive group prioritization
+A decision-tree-based model for **uncertainty and decision-making** in allocating incentives for renewable electricity adoption in Hanover, supporting the Sustainable Hanover goal of **100% renewable electricity by 2030**.
 
-This project aims to maximize the conversion of Hanover population to renewable energy to support Sustainable Hanover goal of achieving 100% renewable electricity by 2030. Uncertainty was modeled with a decision tree that can be generated, viewed, and analyzed using the _decision_tree_ module:
-* Generating decision tree using nodes defined in _nodes.py_
-* Initialize, view, and analyze expected utilities in _model.py_ that generates a pre-defined decision tree architecture
+**Core contributors:**  
+@adayldrm → MILP implementation for incentive group prioritization.
+
+---
+
+## Project Overview
+
+This project models:
+* Optimal incentive allocation under uncertainty
+* Expected utility calculations for different incentive strategies  
+* Renewable energy adoption dynamics in Hanover
+
+We implement a **decision tree** approach using custom node classes (`DecisionNode`, `ChanceNode`, `UtilityNode`) and integrate a MILP formulation for group prioritization.
+
+---
 
 ## _nodes.py_ 
 Contains classes that define the main types of nodes in a decision tree
@@ -53,5 +64,5 @@ Decision tree generated is represented graphically below:
 
 ![Decision Tree](model_vis/decision_tree.jpg)
 
-## _milp.ipynb_ - @adayldrm
-MILP implementation for incentive group prioritization
+## milp.ipynb → MILP for Incentive Group Prioritization
+Developed by @adayldrm to optimize which incentive groups receive priority.
